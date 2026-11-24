@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, ShoppingBag, Menu, X, ChevronDown, Heart } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 
 interface SubItem {
@@ -17,7 +17,7 @@ interface NavItem {
 }
 
 export function Navbar() {
-  const { totalItems, openCart, openSearch, wishlist } = useCart();
+  const { totalItems, openCart, openSearch } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState<string | null>("BAGS");
@@ -84,14 +84,14 @@ export function Navbar() {
             <div className="flex justify-center items-center">
               <Link href="/" className="flex items-center gap-2.5 group">
                 <div className="flex flex-col items-center">
-                  <span className="font-serif text-xl sm:text-3xl tracking-[0.2em] sm:tracking-[0.22em] text-[#17335B] font-bold leading-none">
+                  <span className="font-serif text-2xl sm:text-3xl tracking-[0.2em] sm:tracking-[0.22em] text-[#17335B] font-bold leading-none">
                     Taséa
                   </span>
                 </div>
               </Link>
             </div>
 
-            {/* Right: Action Icons (Search, Wishlist & Cart) */}
+            {/* Right: Action Icons (Search & Cart) */}
             <div className="flex items-center gap-1.5 sm:gap-3 text-[#17335B]">
               {/* Search Button */}
               <button
@@ -101,20 +101,6 @@ export function Navbar() {
               >
                 <Search className="w-5 h-5" />
               </button>
-
-              {/* Wishlist Button */}
-              <Link
-                href="/wishlist"
-                aria-label="Wishlist Saya"
-                className="p-1.5 sm:p-2 hover:text-[#8DA8BB] transition-colors relative flex items-center active:scale-95 cursor-pointer"
-              >
-                <Heart className="w-5 h-5" />
-                {wishlist.length > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 bg-[#17335B] text-[#F9EFE6] text-[9px] sm:text-[10px] font-bold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center border-2 border-[#F9EFE6]">
-                    {wishlist.length}
-                  </span>
-                )}
-              </Link>
 
               {/* Shopping Bag Button */}
               <button
