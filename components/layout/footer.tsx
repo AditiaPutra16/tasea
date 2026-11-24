@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, ChevronDown } from "lucide-react";
-import { InstagramIcon } from "@/components/ui/icons";
+import { InstagramIcon, TikTokIcon } from "@/components/ui/icons";
 
 export function Footer() {
   // Mobile accordion state
@@ -38,16 +38,25 @@ export function Footer() {
               As Free As The Sea
             </p>            
 
-            {/* Social Link */}
-            <div className="pt-1 flex items-center gap-3 text-xs">
+            {/* Social Links */}
+            <div className="pt-1 flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/tasea.bag/"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#8DA8BB]/20 hover:bg-[#8DA8BB]/40 text-[#F9EFE6] transition-colors active:scale-95"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
-                <span>@taseaofficial</span>
+                <span>tasea.bag</span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@tasea.bag"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#8DA8BB]/20 hover:bg-[#8DA8BB]/40 text-[#F9EFE6] transition-colors active:scale-95"
+              >
+                <TikTokIcon className="w-3.5 h-3.5" />
+                <span>tasea.bag</span>
               </a>
             </div>
           </div>
