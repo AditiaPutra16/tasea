@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
+import { Search, ShoppingBag, Menu, X, ChevronDown, Heart } from "lucide-react";
 import { useCart } from "@/context/cart-context";
 
 interface SubItem {
@@ -17,7 +17,7 @@ interface NavItem {
 }
 
 export function Navbar() {
-  const { totalItems, openCart, openSearch } = useCart();
+  const { totalItems, openCart, openSearch, wishlist } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState<string | null>("BAGS");
@@ -52,6 +52,7 @@ export function Navbar() {
   const navLinks: NavItem[] = [
     { label: "HOME", href: "/" },
     { label: "SHOP", href: "/collections/semua-produk" },
+    { label: "WISHLIST", href: "/wishlist" },
   ];
 
   const toggleSubmenu = (label: string) => {
@@ -90,7 +91,7 @@ export function Navbar() {
               </Link>
             </div>
 
-            {/* Right: Action Icons (Search & Cart) */}
+            {/* Right: Action Icons (Search, Wishlist & Cart) */}
             <div className="flex items-center gap-1.5 sm:gap-3 text-[#17335B]">
               {/* Search Button */}
               <button
@@ -100,6 +101,20 @@ export function Navbar() {
               >
                 <Search className="w-5 h-5" />
               </button>
+
+              {/* Wishlist Button */}
+              <Link
+                href="/wishlist"
+                aria-label="Wishlist Saya"
+                className="p-1.5 sm:p-2 hover:text-[#8DA8BB] transition-colors relative flex items-center active:scale-95 cursor-pointer"
+              >
+                <Heart className="w-5 h-5" />
+                {wishlist.length > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 bg-[#17335B] text-[#F9EFE6] text-[9px] sm:text-[10px] font-bold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center border-2 border-[#F9EFE6]">
+                    {wishlist.length}
+                  </span>
+                )}
+              </Link>
 
               {/* Shopping Bag Button */}
               <button

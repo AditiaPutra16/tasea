@@ -3,8 +3,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Heart } from "lucide-react";
 import { Product } from "@/types";
 import { formatPrice } from "@/lib/format";
+import { useCart } from "@/context/cart-context";
 
 interface ProductCardProps {
   product: Product;
@@ -12,16 +14,40 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const { toggleWishlist, isInWishlist } = useCart();
+  const isWishlisted = isInWishlist(product.id);
+
+  const handleWishlistClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist(product.id);
+  };
 
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="group flex flex-col rounded-lg sm:rounded-xl overflow-hidden border border-[#17335B]/10 shadow-2xs hover:shadow-md transition-all duration-300 min-w-0 max-w-full block bg-white"
+      className="group flex flex-col rounded-lg sm:rounded-xl overflow-hidden border border-[#17335B]/10 shadow-2xs hover:shadow-md transition-all duration-300 min-w-0 max-w-full block bg-white relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Container with Hover Crossfade */}
       <div className="relative aspect-4/5 w-full overflow-hidden block">
+        {/* Wishlist Button - Top Right */}
+        <button
+          type="button"
+          onClick={handleWishlistClick}
+          aria-label={isWishlisted ? "Hapus dari wishlist" : "Tambah ke wishlist"}
+          className="absolute top-2.5 right-2.5 z-10 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 backdrop-blur-xs shadow-xs hover:bg-white flex items-center justify-center transition-all duration-200 active:scale-90 cursor-pointer"
+        >
+          <Heart
+            className={`w-4 h-4 sm:w-4.5 sm:h-4.5 transition-colors ${
+              isWishlisted
+                ? "fill-rose-500 text-rose-500"
+                : "text-[#17335B]/70 hover:text-[#17335B]"
+            }`}
+          />
+        </button>
+
         {/* Primary and Secondary Image Crossfade */}
         <Image
           src={product.primaryImage}
