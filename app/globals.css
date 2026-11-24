@@ -1,26 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-price: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-arial: Arial, Helvetica, sans-serif;
+  --color-cream: #F9EFE6;
+  --color-cream-light: #FCF7F2;
+  --color-navy: #17335B;
+  --color-navy-dark: #0E203B;
+  --color-navy-light: #254673;
+  --color-slate-blue: #8DA8BB;
+  --color-slate-light: #A7BDCD;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F9EFE6;
+  --foreground: #17335B;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip !important;
+  touch-action: pan-y;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip !important;
+  position: relative;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
 }
+
+/* Custom scrollbar for modern boutique feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 0px;
+}
+
+::-webkit-scrollbar:horizontal {
+  display: none !important;
+  height: 0px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #F9EFE6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8DA8BB;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #17335B;
+}
+
+/* Keyframe for circular indicator progress ring */
+@keyframes heroProgressRing {
+  from {
+    stroke-dashoffset: 69.12;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
