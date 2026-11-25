@@ -7,6 +7,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { CartDrawer } from "@/components/layout/cart-drawer";
 import { SearchModal } from "@/components/layout/search-modal";
 import { Footer } from "@/components/layout/footer";
+import { ChatButton } from "@/components/layout/chat-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,6 +57,7 @@ export default function RootLayout({
           <Footer />
           <CartDrawer />
           <SearchModal />
+          <ChatButton />
         </CartProvider>
       </body>
     </html>
