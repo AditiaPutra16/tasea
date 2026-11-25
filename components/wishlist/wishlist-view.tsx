@@ -17,7 +17,7 @@ export function WishlistView() {
     .filter((p): p is Product => Boolean(p));
 
   return (
-    <div className="w-full bg-[#F9EFE6] min-h-[calc(100vh-80px)] py-8 sm:py-12">
+    <div className="w-full bg-[#F9EFE6] min-h-[calc(100vh-80px)] py-4 sm:py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">        
 
         {/* Page Header */}
@@ -74,7 +74,7 @@ export function WishlistView() {
                       <div className="flex justify-between items-start gap-1">
                         <Link
                           href={`/products/${product.slug}`}
-                          className="font-serif text-sm sm:text-base font-bold text-[#17335B] hover:text-[#8DA8BB] transition-colors tracking-wide leading-snug line-clamp-2"
+                          className="font-serif text-base sm:text-xl font-bold text-[#17335B] hover:text-[#8DA8BB] transition-colors tracking-wide leading-snug line-clamp-2"
                         >
                           {product.name}
                         </Link>
@@ -85,13 +85,9 @@ export function WishlistView() {
                           aria-label="Hapus dari wishlist"
                           title="Hapus dari wishlist"
                         >
-                          <Trash2 className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                          <Trash2 className="w-4.5 h-4.5 sm:w-4.5 sm:h-4.5" />
                         </button>
                       </div>
-
-                      <p className="text-[11px] sm:text-xs text-[#8DA8BB] mt-1">
-                        {product.category} • {product.colors.length} Pilihan Warna
-                      </p>
                     </div>
 
                     {/* Price */}
