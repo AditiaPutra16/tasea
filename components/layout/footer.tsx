@@ -80,30 +80,15 @@ export function Footer() {
               }`}
             >
               <li>
-                <Link href="/collections/semua-produk?category=Baguette" className="hover:text-white transition-colors block py-0.5">
-                  Baguette Shoulder Bag
+                <Link href="/collections/semua-produk?category=HandBag" className="hover:text-white transition-colors block py-0.5">
+                  Hand Bag
                 </Link>
               </li>
               <li>
-                <Link href="/collections/semua-produk?category=Tote" className="hover:text-white transition-colors block py-0.5">
-                  Tutti & Work Tote
+                <Link href="/collections/semua-produk?category=ShoulderBag" className="hover:text-white transition-colors block py-0.5">
+                  Shoulder Bag
                 </Link>
-              </li>
-              <li>
-                <Link href="/collections/semua-produk?category=Hobo" className="hover:text-white transition-colors block py-0.5">
-                  Hobo Crossbody
-                </Link>
-              </li>
-              <li>
-                <Link href="/collections/semua-produk?category=Accessories" className="hover:text-white transition-colors block py-0.5">
-                  Mini Pouches & Charms
-                </Link>
-              </li>
-              <li>
-                <Link href="/collections/semua-produk" className="hover:text-white transition-colors block py-0.5">
-                  Bestseller Collections
-                </Link>
-              </li>
+              </li>              
             </ul>
           </div>
 
@@ -124,12 +109,7 @@ export function Footer() {
               className={`space-y-2.5 text-xs text-[#F9EFE6]/80 ${
                 openSection === "care" ? "block" : "hidden lg:block"
               }`}
-            >
-              <li>
-                <a href="#featured-products" className="hover:text-white transition-colors block py-0.5">
-                  Panduan Perawatan Bahan
-                </a>
-              </li>
+            >              
               <li>
                 <a href="#featured-products" className="hover:text-white transition-colors block py-0.5">
                   Kebijakan Pengembalian & Garansi
@@ -153,9 +133,35 @@ export function Footer() {
                   className="hover:text-white transition-colors flex items-center gap-1.5 py-0.5"
                 >
                   <Phone className="w-3 h-3 text-[#8DA8BB]" />
-                  <span>CS WhatsApp (+62 812)</span>
+                  <span>+62 812</span>
                 </a>
               </li>
+            </ul>
+          </div> 
+
+          {/* Column 3: Location (Accordion on Mobile, Open on Desktop)*/}
+          <div className="border-t border-[#F9EFE6]/10 lg:border-t-0 pt-4 lg:pt-0">
+            <button
+              onClick={() => toggleSection("loc")}
+              className="w-full flex items-center justify-between text-xs font-semibold tracking-widest uppercase text-[#8DA8BB] lg:pointer-events-none mb-3"
+            >
+              <span>LOKASI</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform lg:hidden ${
+                  openSection === "loc" ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            <ul
+              className={`space-y-2.5 text-xs text-[#F9EFE6]/80 ${
+                openSection === "loc" ? "block" : "hidden lg:block"
+              }`}
+            >
+              <li>
+                <a href="#featured-products" className="hover:text-white transition-colors block py-0.5">
+                  Kebayoran Baru, Jakarta Selatan
+                </a>
+              </li>              
             </ul>
           </div>     
         </div>

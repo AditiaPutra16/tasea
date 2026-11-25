@@ -157,7 +157,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                   className="w-full py-4 flex items-center justify-between text-left text-xs sm:text-sm font-bold uppercase tracking-wider text-[#17335B] hover:text-[#8DA8BB] transition-colors cursor-pointer"
                   aria-expanded={isDimensionsOpen}
                 >
-                  <span>Detail Ukuran & Dimensi</span>
+                  <span>Guide Size</span>
                   <ChevronDown
                     className={`w-4 h-4 text-[#17335B] transition-transform duration-200 ${
                       isDimensionsOpen ? "rotate-180" : ""

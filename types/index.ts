@@ -8,7 +8,7 @@ export interface Product {
   id: string;
   name: string;
   slug: string;
-  category: "Baguette" | "Tote" | "Hobo" | "Vanity" | "Accessories";
+  category: "Hand Bag" | "Shoulder Bag";
   price: number;
   originalPrice?: number;
   badge?: "BESTSELLER" | "NEW" | "LIMITED";

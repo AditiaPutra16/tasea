@@ -7,7 +7,7 @@ export function CategoryGrid() {
   return (
     <section className="pt-2 pb-12 sm:pb-20 bg-[#F9EFE6] border-b border-[#17335B]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">        
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 min-w-0 max-w-full overflow-hidden">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 min-w-0 max-w-full overflow-hidden">
           {CATEGORIES.map((cat) => (
             <Link
               key={cat.id}

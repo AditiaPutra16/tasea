@@ -31,11 +31,8 @@ const SORT_LABELS: Record<SortOption, string> = {
 
 const CATEGORIES = [
   { id: "ALL", label: "Semua Produk" },
-  { id: "Baguette", label: "Baguette Bag" },
-  { id: "Tote", label: "Work & Daily Tote" },
-  { id: "Hobo", label: "Hobo & Crossbody" },
-  { id: "Vanity", label: "Vanity Case" },
-  { id: "Accessories", label: "Small Accessories" },
+  { id: "HandBag", label: "Hand Bag" },
+  { id: "ShoulderBag", label: "Shoulder Bag" },
 ];
 
 export function ShopCatalog() {
@@ -87,8 +84,9 @@ export function ShopCatalog() {
 
     // Filter by Category
     if (activeCategory !== "ALL") {
+      const normalizedActive = activeCategory.toLowerCase().replace(/[\s-_]/g, "");
       result = result.filter(
-        (p) => p.category.toLowerCase() === activeCategory.toLowerCase()
+        (p) => p.category.toLowerCase().replace(/[\s-_]/g, "") === normalizedActive
       );
     }
 
@@ -266,7 +264,11 @@ export function ShopCatalog() {
                 </h4>
                 <div className="space-y-2.5 pl-3.5 sm:pl-4">
                   {CATEGORIES.map((cat) => {
-                    const isSelected = activeCategory.toLowerCase() === cat.id.toLowerCase();
+                    const normalizedActive = activeCategory.toLowerCase().replace(/[\s-_]/g, "");
+                    const isSelected =
+                      cat.id === "ALL"
+                        ? activeCategory === "ALL" || !activeCategory
+                        : normalizedActive === cat.id.toLowerCase().replace(/[\s-_]/g, "");
                     return (
                       <label
                         key={cat.id}
